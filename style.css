@@ -5,8 +5,8 @@ body {
 }
 
 header {
-    background-color: #1d2935;
-    color: #552424;
+    background-color: #333;
+    color: #fff;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@ nav a {
 .hero {
     text-align: center;
     padding: 50px;
-    background-color: #dfd9d9;
+    background-color: #eee;
 }
 
 .search-bar {
@@ -38,7 +38,7 @@ nav a {
 }
 
 .featured-bikes {
-    padding: 30px;
+   padding: 30px;
 }
 
 .browse-bikes {
@@ -46,8 +46,8 @@ nav a {
 }
 
 footer {
-    background-color: #52978e;
-    color: #e1caca;
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 10px;
     position: fixed;
