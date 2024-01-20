@@ -5,9 +5,9 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+    background-color: #92bdea;
+    color: hwb(0 5% 94%);
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,30 +24,46 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #fff;
+    color: #0e0909;
 }
 
 .hero {
     text-align: center;
     padding: 50px;
-    background-color: #eee;
+    background-color: #f9f8f8;
 }
 
 .search-bar {
     margin-top: 20px;
 }
 
-.featured-bikes {
-   padding: 30px;
+.Features {
+    margin-left: 20px;
+   padding-top: 100px;
+   padding-bottom: 100px;
 }
 
-.browse-bikes {
-    padding: 30px;
+.Brands {
+    margin-left: 0px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.topbikes {
+    margin-left: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.latestbikes {
+    margin-left: 50px;
+    padding-top: 100px;
+    padding-bottom: 150px;
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #025b6c;
+    color: #120d0d;
     text-align: center;
     padding: 10px;
     position: fixed;

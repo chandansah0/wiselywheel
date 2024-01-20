@@ -10,15 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayFeaturedProducts() {
         const featuredProductsList = document.getElementById('featuredProductsList');
 
-        // Clear any existing content
-        featuredProductsList.innerHTML = '';
+        // Check if the element exists before modifying it
+        if (featuredProductsList) {
+            // Clear any existing content
+            featuredProductsList.innerHTML = '';
 
-        // Loop through featured products and create list items
-        featuredProducts.forEach(product => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${product.name} - ${product.price}`;
-            featuredProductsList.appendChild(listItem);
-        });
+            // Loop through featured products and create list items
+            featuredProducts.forEach(product => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${product.name} - ${product.price}`;
+                featuredProductsList.appendChild(listItem);
+            });
+        }
     }
 
     // Initial display of featured products
