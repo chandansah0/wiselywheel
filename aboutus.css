@@ -1,25 +1,41 @@
-
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #af9797;
 }
 
-.about-us {
-    display: block;
-    padding: 30px;
-    background-color: #f1e5e5;
-    max-width: 500px;
-    margin: 0 auto;
-    
+.about-us, .details {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.about-us.visible {
-    display: block;
-    margin-bottom: 100px;
+.about-us h2, .details h1 {
+    color: #333;
+}
+
+.about-us p, .details p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.details h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Styling for the contact details */
+.details h3:first-child {
+    margin-top: 0;
+}
+
+/* Responsive styling */
+@media only screen and (max-width: 600px) {
+    .about-us, .details {
+        margin: 10px;
+    }
 }
