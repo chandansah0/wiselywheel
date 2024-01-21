@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Bike Specs & Comparison</title>
+    <title>WiselyWheel</title>
 </head>
 <body>
 
 <header>
-    <img src="logo.jpg" alt="WiselyWheel" width="150mm" height="100mm">
-    <!-- <div class="logo">WiselyWheel</div> -->
+    <img src="img/logo.jpg" alt="WiselyWheel" width="150mm" height="100mm">
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Browse Bikes</a></li>
             <li><a href="#">Compare Bikes</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="#" onclick="toggleContactSection()">Contact</a></li>
         </ul>
     </nav>
 </header>
@@ -32,36 +31,55 @@
 </section>
 <section class="Features">
     <h2>Features</h2>
-    <img src="apache_200.jpeg" alt="Apache RTR 200" width="350mm" height="250mm">
-    <img src="ns_200.avif" alt="Pulsar NS 200" width="350mm" height="250mm">
-    <img src="fzs.webp" alt="Yamaha FZS" width="350mm" height="250mm">
+    <img src="img/apache_200.jpeg" alt="Apache RTR 200" width="350mm" height="250mm">
+    <img src="img/ns_200.avif" alt="Pulsar NS 200" width="350mm" height="250mm">
+    <img src="img/fzs.webp" alt="Yamaha FZS" width="350mm" height="250mm">
 </section>
 
 <section class="Brands">
     <h2>All Brands</h2>
-    <img src="honda-logo.jpg" alt="Honda" width="200mm" height="100mm">
-    <img src="tvs_logo.png" alt="TVS" width="200mm" height="100mm">
-    <img src="logo_yamaha.gif" alt="Yamaha" width="200mm" height="100mm">
-    <img src="bajaj_logo.png" alt="Bajaj" width="200mm" height="100mm">
+    <img src="img/honda-logo.jpg" alt="Honda" width="200mm" height="100mm">
+    <img src="img/tvs_logo.png" alt="TVS" width="200mm" height="100mm">
+    <img src="img/logo_yamaha.gif" alt="Yamaha" width="200mm" height="100mm">
+    <img src="img/bajaj_logo.png" alt="Bajaj" width="200mm" height="100mm">
 </section>
 
 <section class="topbikes">
     <h2>Top Bikes</h2>
-    <img src="raider.webp" alt="Raider" width="350mm" height="250mm">
-    <img src="mt-15.png" alt="Mt-15" width="350mm" height="250mm">
-    <img src="ns_200.avif" alt="Ns" width="350mm" height="250mm">
+    <img src="img/raider.webp" alt="Raider" width="350mm" height="250mm">
+    <img src="img/mt-15.png" alt="Mt-15" width="350mm" height="250mm">
+    <img src="img/ns_200.avif" alt="Ns" width="350mm" height="250mm">
 </section>
 
 <section class="latestbikes">
     <h2>Latest Bikes</h2>
-    <img src="Tvs-Ronin.jpg" alt="Ronin" width="350mm" height="250mm">
-    <img src="raider.webp" alt="Raider" width="400mm" height="250mm">
+    <img src="img/Tvs-Ronin.jpg" alt="Ronin" width="350mm" height="250mm">
+    <img src="img/raider.webp" alt="Raider" width="400mm" height="250mm">
 
 </section>
+
+<section class="contact">
+    <h2>Contact Us</h2>
+    <p>Feel free to reach out to us for any inquiries or feedback. Fill out the form below:</p>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email">
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Your Message"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
 <footer>
     <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
 </footer>
 <script src="script.js"></script>
+<script src="script2.js"></script>
 </body>
 
 </html>

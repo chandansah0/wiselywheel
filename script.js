@@ -1,29 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Sample data for featured products
-    const featuredProducts = [
-        { name: 'Product 1', price: '$19.99' },
-        { name: 'Product 2', price: '$29.99' },
-        { name: 'Product 3', price: '$39.99' }
-    ];
+    // Wait for the DOM to be fully loaded
 
-    // Function to display featured products
-    function displayFeaturedProducts() {
-        const featuredProductsList = document.getElementById('featuredProductsList');
+    // Get the search button element
+    const searchButton = document.querySelector('.search-bar button');
 
-        // Check if the element exists before modifying it
-        if (featuredProductsList) {
-            // Clear any existing content
-            featuredProductsList.innerHTML = '';
+    // Add a click event listener to the search button
+    searchButton.addEventListener('click', function() {
+        // Get the input value
+        const budgetInput = document.querySelector('.search-bar input');
+        const budget = budgetInput.value;
 
-            // Loop through featured products and create list items
-            featuredProducts.forEach(product => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${product.name} - ${product.price}`;
-                featuredProductsList.appendChild(listItem);
-            });
-        }
-    }
-
-    // Initial display of featured products
-    displayFeaturedProducts();
+        // Perform some action with the entered budget (for example, display an alert)
+        alert(`Searching for bikes within budget: ${budget}`);
+    });
 });
+
