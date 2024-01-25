@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-color: #f2f7fc;
+    background-color:white;
     color: hwb(0 5% 94%);
     padding: 20px;
     display: flex;
@@ -30,41 +30,17 @@ nav a {
 .hero {
     text-align: center;
     padding: 50px;
-    background-color: #f9f8f8;
+    background-color: white;
 }
 
 .search-bar {
     margin-top: 20px;
 }
 
-.Features {
-    margin-left: 50px;
-   padding-top: 100px;
-   padding-bottom: 100px;
-}
-
-.Brands {
-    margin-left: 50px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.topbikes {
-    margin-left: 50px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.latestbikes {
-    margin-left: 50px;
-    padding-top: 100px;
-    padding-bottom: 150px;
-}
-
 .contact {
     display: none;
     padding: 30px;
-    background-color: #f5f5f5;
+    background-color: white;
     max-width: 500px;
     margin: 0 auto;
 }
@@ -86,7 +62,7 @@ nav a {
 }
 
 .contact button {
-    background-color: #767575;
+    background-color: rgb(237, 65, 73);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -94,13 +70,154 @@ nav a {
     margin-bottom: 70px;
 }
 
+/* features */
+.features-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+gap: 1rem;
+margin-top: 2rem;
+}
+.features-container .box{
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow:1px 4px 41px rgba(0, 0, 0, 0.1);
+    
+}
+.features-container .box .box-img{
+    width: 350px;
+    height: 250px;
 
+}
+.features-container .box .box-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* All brands */
+/* Reset some default margin and padding */
+ body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a box-sizing border-box model to all elements */
+ * {
+    box-sizing: border-box;
+}
+
+/* Style for the Brands section */
+.brands {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+.heading {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.heading h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.brands-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    margin: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box-img {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.box-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* top bikes */
+.services-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+gap: 1rem;
+margin-top: 2rem;
+}
+.services-container .box{
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow:1px 4px 41px rgba(0, 0, 0, 0.1);
+    
+}
+.services-container .box .box-img{
+    width: 400px;
+    height: 300px;
+
+}
+.services-container .box .box-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* latest bikes */
+.latestbikes-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+gap: 1rem;
+margin-top: 2rem;
+}
+.latestbikes-container .box{
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow:1px 4px 41px rgba(0, 0, 0, 0.1);
+    
+}
+.latestbikes-container .box .box-img{
+    width: 400px;
+    height: 300px;
+
+}
+.latestbikes-container .box .box-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* footer */
 footer {
     background-color: #025b6c;
     color: #120d0d;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position:static;
     bottom: 0;
     width: 100%;
-}
+    height: 50px;
+} 
+
