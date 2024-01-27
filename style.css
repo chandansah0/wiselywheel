@@ -56,7 +56,7 @@ nav a {
 
 .contact input,
 .contact textarea {
-    width: 100%;
+    width: 67%;
     padding: 10px;
     margin-bottom: 15px;
 }
@@ -67,13 +67,13 @@ nav a {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    margin-bottom: 70px;
+    margin-bottom: 60%;
 }
 
 /* features */
 .features-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(10px, auto));
 gap: 1rem;
 margin-top: 2rem;
 }
@@ -84,13 +84,12 @@ margin-top: 2rem;
     
 }
 .features-container .box .box-img{
-    width: 350px;
-    height: 250px;
-
+    width: 65%;
+    height: 45%;
 }
 .features-container .box .box-img img{
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 90%;
     border-radius: 1rem;
     object-fit: cover;
     object-position: center;
@@ -116,11 +115,11 @@ margin-top: 2rem;
 
 .heading {
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 30%;
 }
 
 .heading h1 {
-    font-size: 36px;
+    font-size: 100%;
     color: #333;
 }
 
@@ -131,7 +130,7 @@ margin-top: 2rem;
 }
 
 .box {
-    margin: 10px;
+    margin: 1rem;
     overflow: hidden;
     border: 1px solid #ddd;
     border-radius: 1rem;
@@ -144,14 +143,14 @@ margin-top: 2rem;
 }
 
 .box-img {
-    width: 100%;
-    height: 150px;
+    width: 85%;
+    height: 90%;
     overflow: hidden;
 }
 
 .box-img img {
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 90%;
     object-fit: cover;
     object-position: center;
 }
@@ -165,19 +164,19 @@ gap: 1rem;
 margin-top: 2rem;
 }
 .services-container .box{
-    padding: 10px;
+    padding: 10%;
     border-radius: 1rem;
     box-shadow:1px 4px 41px rgba(0, 0, 0, 0.1);
     
 }
 .services-container .box .box-img{
-    width: 400px;
-    height: 300px;
+    width: 65%;
+    height: 90%;
 
 }
 .services-container .box .box-img img{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 90%;
     border-radius: 1rem;
     object-fit: cover;
     object-position: center;
@@ -192,18 +191,18 @@ margin-top: 2rem;
 }
 .latestbikes-container .box{
     padding: 10px;
-    border-radius: 1rem;
+    border-radius: 5px;
     box-shadow:1px 4px 41px rgba(0, 0, 0, 0.1);
     
 }
 .latestbikes-container .box .box-img{
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: 85%;
 
 }
 .latestbikes-container .box .box-img img{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 90%;
     border-radius: 1rem;
     object-fit: cover;
     object-position: center;
