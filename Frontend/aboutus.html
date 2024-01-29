@@ -3,9 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="aboutus.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>About Us</title>
   </head>
+<body>
+  <header>
+    <img src="img/l1.png" alt="WiselyWheel" width="150mm" height="100mm" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Browsebike.html">Browse Bikes</a></li>
+        <li><a href="Comparebike.html">Compare Bikes</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="#" onclick="toggleContactSection()">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
   <section class="about-us">
     <h2>About Us</h2>
     <p>
@@ -30,11 +44,26 @@
     <h1>Contact</h1>
     <p>Let's bring joy and delight to the process of choosing your dreams bikes.</p>
     <b>Phone: </b>
-    9814800000, 9501010100  <br></br>
+    9814800000, 9501010100  <br>
     <b>Customer Support:</b>
-    contact@whiselywheel.com  <br></br>
+    contact@whiselywheel.com  <br>
     <b>Address:</b>
-    A&C Complex, 3rd floor, kupondole, Lalitpur, Bagmati Province, Nepal  <br></br>
+    A&C Complex, 3rd floor, kupondole, Lalitpur, Bagmati Province, Nepal  <br>
 
-  <script src="aboutus.js"></script>
+  <script>
+    function toggleAboutSection() {
+      const aboutSection = document.querySelector('.about-us');
+      if (aboutSection) {
+          aboutSection.classList.toggle('visible');
+      }
+  }
+  </script>
+
+
+
+
+  <footer>
+    <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
+  </footer>
+</body>
 </html>
