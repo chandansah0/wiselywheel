@@ -6,7 +6,51 @@
     <link rel="stylesheet" href="style.css" />
     <title>WiselyWheel</title>
   </head>
+  <header>
+    <img src="img/l1.png" alt="WiselyWheel" width="150mm" height="100mm" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Browsebike.html">Browse Bikes</a></li>
+        <li><a href="Comparebike.html">Compare Bikes</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="#" onclick="toggleContactSection()">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <body>
     <p1>Hello from Comparebike</p1>
+
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>
+        Feel free to reach out to us for any inquiries or feedback. Fill out the
+        form below:
+      </p>
+      <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" />
+
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+        ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
   </body>
 </html>
