@@ -11,3 +11,4 @@ const conn = mongoose.connection;
 conn.once('open',() => {
     console.log('successfully database connected');
 })
+
