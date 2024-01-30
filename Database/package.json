@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "data.js": "^0.12.11",
+    "mongoose": "^8.1.1"
+  }
+}
