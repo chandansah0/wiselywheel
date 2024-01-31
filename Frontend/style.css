@@ -13,6 +13,7 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
 }
 
 nav ul {
@@ -45,7 +46,6 @@ nav a:hover {
 }
 
 /* Features section */
-
 .features-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -58,6 +58,10 @@ nav a:hover {
   background-color: #ffffff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  transition :transform 0.3s ease;
+}
+.features-container .box:hover {
+  transform: scale(1.05); 
 }
 
 .features-container .box .box-img img {
@@ -79,7 +83,13 @@ nav a:hover {
   background-color: #ffffff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  transition: transform 0.3s ease;
 }
+.brands-container .box:hover {
+  transform: scale(1.05); 
+}
+
+
 
 .brands-container .box .box-img img {
   width: 100%;
@@ -87,7 +97,7 @@ nav a:hover {
   border-radius: 1rem;
 }
 
-/*  top bikes section */
+/* Top bikes section */
 .topbikes-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -100,13 +110,19 @@ nav a:hover {
   background-color: #ffffff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  transition: transform 0.3s ease;
 }
+.topbikes-container .box:hover {
+  transform: scale(1.05); 
+}
+
 
 .topbikes-container .box .box-img img {
   width: 100%;
   height: auto;
   border-radius: 1rem;
 }
+
 /* Latest bikes section */
 .latestbikes-container {
   display: grid;
@@ -120,6 +136,11 @@ nav a:hover {
   background-color: #ffffff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  transition:transform 0.3s ease;
+}
+
+.latestbikes-container .box:hover {
+  transform: scale(1.05); 
 }
 
 .latestbikes-container .box .box-img img {
@@ -129,7 +150,6 @@ nav a:hover {
 }
 
 /* Footer */
-
 footer {
   background-color: #4c67ef;
   color: #ffffff;
@@ -141,4 +161,35 @@ footer {
   height: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    margin-top: 1rem;
+  }
+
+  nav li {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero {
+    padding: 10%;
+  }
+
+  .search-bar {
+    margin-top: 0.5rem;
+  }
+
+  .features-container,
+  .brands-container,
+  .topbikes-container,
+  .latestbikes-container {
+    grid-template-columns: 1fr;
+  }
 }
