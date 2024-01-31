@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url_api = 'https://honda.com.np/motorcycle/dio-125/'
+url_api = 'https://honda.com.np/motorcycle/dio-bs6/'
 usa_req = requests.get(url_api)
 
 usa_req.status_code
