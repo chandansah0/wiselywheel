@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "data.js": "^0.12.11"
+    "data.js": "^0.12.11",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1"
   }
 }
