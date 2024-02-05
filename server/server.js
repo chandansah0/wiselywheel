@@ -16,7 +16,7 @@ app.use('/api/bike_features', bikeRoutes);
 app.get('/', (req, res) => {
   res.render('index');
 });
-app.use(express.static('wiselywheel/server/public'));
+app.use(express.static('public'));
 
 
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
