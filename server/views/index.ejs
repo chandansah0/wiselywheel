@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <img src="" alt="WiselyWheel" width="200rem" height="150rem"/>
+      <img src="/image/l2.png" alt="WiselyWheel" width="200rem" height="150rem"/>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -37,7 +37,7 @@
     <div class="features-container">
         <div class="box">
             <div class="box-img">
-                <img src="img/apache_200.jpeg" alt="">
+                <img src="/image/apache_200.jpeg" alt="">
             </div>
         <h3>TVS Apache RTR 200 4V</h3>
         <h5>NRs.324,900/-</h5>
@@ -45,7 +45,7 @@
 
         <div class="box">
             <div class="box-img">
-                <img src="img/ns_200.avif" alt="">
+                <img src="/image/ns_200.avif" alt="">
             </div>
         <h3>Bajaj Pulsar NS 200 ABS</h3>
         <h5>NRs.379,900/-</h5>
@@ -53,7 +53,7 @@
 
         <div class="box">
             <div class="box-img">
-                <img src="img/fzs.webp" alt="">
+                <img src="/image/fzs.webp" alt="">
             </div>
         <h3>Yamaha FZs V2</h3>
         <h5>NRs.364,900/-</h5>
@@ -68,24 +68,24 @@
     <div class="brands-container">
         <div class="box">
             <div class="box-img">
-                <img src="img/honda.png" alt="">
+                <img src="/image/honda.png" alt="">
             </div>
         </div>
 
         <div class="box">
             <div class="box-img">
-                <img src="img/Yamaha.png">
+                <img src="/image/Yamaha.png">
             </div>
         </div>
 
         <div class="box">
             <div class="box-img">
-                <img src="img/bajaj.png" alt="">
+                <img src="/image/bajaj.png" alt="">
             </div>
         </div>
         <div class="box">
             <div class="box-img">
-                <img src="img/tvs.webp" alt="">
+                <img src="/image/tvs.webp" alt="">
             </div>
         </div>
 </section>
@@ -98,7 +98,7 @@
     <div class="topbikes-container">
         <div class="box">
             <div class="box-img">
-                <img src="img/mt-15.png" alt="">
+                <img src="/image/mt-15.png" alt="">
             </div>
         <h3>MT-15 BS6</h3>
         <h5>NRs.509,900/-</h5>
@@ -106,7 +106,7 @@
 
         <div class="box">
             <div class="box-img">
-                <img src="img/ns_200.avif" alt="">
+                <img src="/image/ns_200.avif" alt="">
             </div>
         <h3>Bajaj Pulsar NS 200 ABS</h3>
         <h5>NRs.379,900/-</h5>
@@ -114,7 +114,7 @@
 
         <div class="box">
             <div class="box-img">
-                <img src="img/raider.webp" alt="">
+                <img src="/image/raider.webp" alt="">
             </div>
         <h3>TVS Raider</h3>
         <h5>NRs.266900/-</h5>
@@ -129,7 +129,7 @@
     <div class="latestbikes-container">
         <div class="box">
             <div class="box-img">
-                <img src="img/Tvs-Ronin.jpg" alt="">
+                <img src="/image/Tvs-Ronin.jpg" alt="">
             </div>
         <h3>TVS Ronin</h3>
         <h5>NRs.449,900/-</h5>
@@ -137,7 +137,7 @@
 
         <div class="box">
             <div class="box-img">
-                <img src="img/ns_200.avif" alt="">
+                <img src="/image/ns_200.avif" alt="">
             </div>
         <h3>Bajaj Pulsar NS 200 ABS</h3>
         <h5>NRs.379,900/-</h5>
@@ -148,29 +148,14 @@
     <h2>Fetched Bike Data</h2>
     <ul id="bikeList"></ul>
 </section>
-<script>
-    // Fetch data from server
-    fetch('/api/bikefeatures')
-        .then(response => response.json())
-        .then(data => {
-            // Render data using EJS template
-            const bikeList = document.getElementById('bikeList');
-            data.forEach(bike => {
-                const bikeItem = document.createElement('div');
-                bikeItem.textContent = `Name: ${bike.name}, Price: ${bike.price}`;
-                bikeList.appendChild(bikeItem);
-            });
-        })
-        .catch(error => console.error('Error fetching data:', error));
-</script>
 
     <footer>
       <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
     </footer>
-    <!-- <script src="script.js"></script> -->
-    <script src="/javascripts/script2.js"></script>
+    <!-- <script src="script.js"></script>  -->
+    < <script src="/javascripts/script2.js"></script>
     <script src="/wiselywheel/Database/data.js"></script>
-   
+    
 
 
 
