@@ -51,5 +51,18 @@
     </footer>
     <script src="script.js"></script>
     <script src="script2.js"></script>
+    <script>
+      fetch("/api/Bikes_Features")
+        .then((response) => response.json())
+        .then((bikesFeatures) => {
+          const bikeList = document.getElementById("bikeList");
+          bikes.forEach((bike) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${bike.name} - ${bike.price}`;
+            bikeList.appendChild(listItem);
+          });
+        })
+        .catch((error) => console.error("Error fetching bikes:", error));
+    </script>
   </body>
 </html>

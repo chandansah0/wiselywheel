@@ -24,9 +24,8 @@
     <section class="hero">
       <h1>Discover and Compare Your Perfect Ride</h1>
       <div class="search-bar">
-        <input type="text" placeholder="Search your bike here" />
-        <button>Search</button>
-        
+        <input type="text" id="bikeSearchInput" placeholder="Search your bike here" />
+        <button onclick="searchBikes()">Search</button>
     </div>
 </section>
 
@@ -145,6 +144,10 @@
         </div>
 
 </section>
+<section class="fetchedData" id="fetchedData">
+    <h2>Fetched Bike Data</h2>
+    <ul id="bikeList"></ul>
+</section>
 
     <footer>
       <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
@@ -152,5 +155,27 @@
     <!-- <script src="script.js"></script> -->
     <script src="script2.js"></script>
     <script src="/data.js"></script>
+    <script>
+        async function searchBikes() {
+          const searchInput = document.getElementById('bikeSearchInput').value;
+  
+          try {
+            const response = await fetch(`http://localhost:3000/api/bikes?search=${searchInput}`);
+            const data = await response.json();
+  
+            // Display the fetched data in the bikeList element
+            const bikeList = document.getElementById('bikeList');
+            bikeList.innerHTML = ''; // Clear previous results
+  
+            data.forEach(bike => {
+              const listItem = document.createElement('li');
+              listItem.textContent = `${bike.brand} - ${bike.model} - ${bike.price}`;
+              bikeList.appendChild(listItem);
+            });
+          } catch (error) {
+            console.error('Error fetching bikes:', error);
+          }
+        }
+      </script>
   </body>
 </html>
