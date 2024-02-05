@@ -21,29 +21,44 @@
   </header>
 
   <body>
-    <p1>Hello from browse bike</p1>
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <p>
-        Feel free to reach out to us for any inquiries or feedback. Fill out the
-        form below:
-      </p>
-      <form id="contactForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" />
+    <h3>Browse Bike:</h3>
+    <section class="brands" id="brands">
+      <div class="heading">
+        <button onclick="showContent('brandsContent')">Brands</button>
+      </div>
+      <div class="brands-container" id="brandsContent">
+        <div class="box">
+          <div class="box-img">
+            <img src="img/honda.png" alt="">
+          </div>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" />
+        <div class="box">
+          <div class="box-img">
+            <img src="img/Yamaha.png">
+          </div>
+        </div>
 
-        <label for="message">Message:</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Your Message"
-        ></textarea>
+        <div class="box">
+          <div class="box-img">
+            <img src="img/bajaj.png" alt="">
+          </div>
+        </div>
 
-        <button type="submit">Submit</button>
-      </form>
+        <div class="box">
+          <div class="box-img">
+            <img src="img/tvs.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="budgets" id="budgets">
+      <button onclick="showContent('budgetsContent')">Budget</button>
+      <div class="budgets-container" id="budgetsContent">
+        <!-- Content for Budgets -->
+        <p>Display budget-related content here.</p>
+      </div>
     </section>
 
     <footer>
