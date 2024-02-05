@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+   
+    <link rel="stylesheet" href="style.css" />
     <title>WiselyWheel</title>
   </head>
   <body>
     <header>
-      <img src="" alt="WiselyWheel" width="200rem" height="150rem"/>
+      <img src="img/l2.png" alt="WiselyWheel" width="200rem" height="150rem"/>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -147,9 +148,8 @@
 <section class="fetchedData" id="fetchedData">
     <h2>Fetched Bike Data</h2>
     <ul id="bikeList"></ul>
-</section>
-<script>
-    // Fetch data from server
+</section>  <script>
+    
     fetch('/api/bikefeatures')
         .then(response => response.json())
         .then(data => {
@@ -168,13 +168,8 @@
       <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
     </footer>
     <!-- <script src="script.js"></script> -->
-    <script src="/javascripts/script2.js"></script>
-    <script src="/wiselywheel/Database/data.js"></script>
-   
+    <script src="/wiselywheel/server/public/javascripts/script2.js"></script>
+   <script src="/wiselywheel/Database/data.js"></script> 
 
-
-
-
-   
   </body>
 </html>
