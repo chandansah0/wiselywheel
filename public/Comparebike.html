@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>WiselyWheel</title>
+    <title>compare bikes</title>
   </head>
   <header>
     <img src="img/l2.png" alt="WiselyWheel" width="150mm" height="100mm" />
@@ -20,31 +20,89 @@
   </header>
 
   <body>
-    <p1>Hello from Comparebike</p1>
+    <h3>Compare Bikes</h3>
 
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <p>
-        Feel free to reach out to us for any inquiries or feedback. Fill out the
-        form below:
-      </p>
-      <form id="contactForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" />
+    <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f9f9;
+          text-align: center;
+      }
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" />
+      header {
+          background-color: #ffffff;
+          color: #333333;
+          padding: 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      }
 
-        <label for="message">Message:</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Your Message"
-        ></textarea>
+      main {
+          padding: 2rem;
+      }
 
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+      label {
+          display: block;
+          margin: 1rem 0;
+      }
+
+      input {
+          width: 30%;
+          padding: 0.5rem;
+          margin-top: 0.5rem;
+          box-sizing: border-box;
+      }
+
+      button {
+          background-color: #4CAF50;
+          color: white;
+          padding: 1rem 2rem;
+          font-size: 16px;
+          cursor: pointer;
+          border: none;
+      }
+
+      #comparisonResult {
+          margin-top: 2rem;
+      }
+  </style>
+</head>
+<body>
+  <header>
+      <h1>Comparison</h1>
+  </header>
+  <main>
+      <label for="item1">Item 1:</label>
+      <input type="text" id="item1" placeholder="Enter Item 1">
+
+      <label for="item2">Item 2:</label>
+      <input type="text" id="item2" placeholder="Enter Item 2">
+
+      <button onclick="compareItems()">Compare</button>
+
+      <div id="comparisonResult"></div>
+  </main>
+  <script>
+      function compareItems() {
+          var item1 = document.getElementById('item1').value;
+          var item2 = document.getElementById('item2').value;
+
+          if (item1 && item2) {
+              var resultElement = document.getElementById('comparisonResult');
+              resultElement.innerHTML = `
+                  <h2>Comparison Result:</h2>
+                  <p>${item1} vs. ${item2}</p>
+                  <!-- Add more detailed comparison here -->
+              `;
+          } else {
+              alert('Please enter both items for comparison.');
+          }
+      }
+  </script>
 
     <footer>
       <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
