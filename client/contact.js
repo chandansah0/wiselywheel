@@ -20,7 +20,7 @@ const formDataSchema = new mongoose.Schema({
 // Create a mongoose model based on the schema
 const FormData = mongoose.model('FormData', formDataSchema);
 
-// Middleware to parse form data
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files (HTML, CSS, etc.)

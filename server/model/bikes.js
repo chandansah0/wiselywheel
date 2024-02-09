@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const bikeFeatureSchema = new mongoose.Schema({
+const bikefeatureSchema = new mongoose.Schema({
   variant_name: String,
   on_road_price: Number,
   engine_type: String,
@@ -24,6 +24,6 @@ const bikeFeatureSchema = new mongoose.Schema({
   braking_system: String
 });
 
-const BikeFeature = mongoose.model('BikeFeature', bikeFeatureSchema);
+const BikeFeature = mongoose.model('BikeFeature', bikefeatureSchema);
 
 module.exports = BikeFeature;
