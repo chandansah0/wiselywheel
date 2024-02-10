@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 });
 // document.addEventListener('DOMContentLoaded', function () {
-    
+
 //     document.getElementById('searchButton').addEventListener('click', function () {
 
 //       const searchInput = document.getElementById('bikeSearchInput').value;
-      
+
 //       console.log('Search input:', searchInput);
 
 //     });
