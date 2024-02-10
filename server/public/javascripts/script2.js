@@ -21,16 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching data:', error);
         });
 });
-// document.addEventListener('DOMContentLoaded', function () {
-    
-//     document.getElementById('searchButton').addEventListener('click', function () {
 
-//       const searchInput = document.getElementById('bikeSearchInput').value;
-      
-//       console.log('Search input:', searchInput);
-
-//     });
-//   });
 document.addEventListener('DOMContentLoaded', function () {
     const searchButton = document.getElementById('searchButton');
     const bikeSearchInput = document.getElementById('bikeSearchInput');

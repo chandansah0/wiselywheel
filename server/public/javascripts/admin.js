@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch and display data
     fetch('/api/bikefeatures')
@@ -14,8 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching data:', error);
         });
 
+    const filterForm = document.getElementById('filterForm');
+    const filterResultsDiv = document.getElementById('filterResults');
+
     // Handle form submission for filtering
-    document.getElementById('filterForm').addEventListener('submit', function (event) {
+    filterForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const filterField = document.getElementById('filterField').value;
         const filterValue = document.getElementById('filterValue').value;
@@ -28,7 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(filteredData => {
-                document.getElementById('filterResults').textContent = JSON.stringify(filteredData, null, 2);
+                // Clear previous results
+                filterResultsDiv.innerHTML = '';
+
+                // Display filtered results
+                filteredData.forEach(bike => {
+                    const bikeElement = document.createElement('div');
+                    bikeElement.textContent = `Bike: ${bike.variant_name}, Price: ${bike['On-road prize']}`;
+                    filterResultsDiv.appendChild(bikeElement);
+                });
             })
             .catch(error => {
                 console.error('Error filtering data:', error);
