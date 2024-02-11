@@ -31,10 +31,7 @@ app.get('/admin/filterResults', (req, res) => {
   const filterField = req.query.filterField;
   const filterValue = req.query.filterValue;
 
-  // Fetch filtered results from the database using filterField and filterValue
-  // Example: const filteredData = fetchDataFromDatabase(filterField, filterValue);
-
-  // Render a new page with the filtered results
+  
   res.render('filteredResults', { filterField, filterValue, /* Add filtered data here */ });
 });
 
