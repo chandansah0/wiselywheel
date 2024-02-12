@@ -1,20 +1,25 @@
 const express = require('express');
 const router = express.Router();
-
 const BikeModel = require('../model/bikes');
-
-
 
 router.get('/', async (req, res) => {
   try {
-    let filter = {};
-    if (req.query.variant_name) {
-      filter.variant_name = { $regex: new RegExp(req.query.variant_name, 'i') };
-    }
     const bikeFeatures = await BikeModel.find();
     res.json(bikeFeatures);
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+});
+
+router.post('/compare', async (req, res) => {
+  const { bikeIds } = req.body;
+
+  try {
+    const bikes = await Promise.all(bikeIds.map((bikeId) => BikeModel.findById(bikeId)));
+    res.json(bikes);
+  } catch (error) {
+    console.error('Error comparing bikes:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

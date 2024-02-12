@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= bike.variant_name %> Details</title>
+    <link rel="stylesheet" href="/stylesheets/bikeDetails.css" />
+  </head>
+  <body>
+    <h1><%= bike.variant_name %> Details</h1>
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Variant Name</td>
+        <td><%= bike.variant_name %></td>
+      </tr>
+      <tr>
+        <td>On-road Price</td>
+        <td><%= bike.on_road_price %></td>
+      </tr>
+      <tr>
+        <td>Engine Type</td>
+        <td><%= bike.engine_type %></td>
+      </tr>
+      <tr>
+        <td>Displacement</td>
+        <td><%= bike.displacement %></td>
+      </tr>
+      <tr>
+        <td>Max Torque</td>
+        <td><%= bike.max_torque %></td>
+      </tr>
+      <tr>
+        <td>Cooling System</td>
+        <td><%= bike.cooling_system %></td>
+      </tr>
+      <tr>
+        <td>Valve Per Cylinder</td>
+        <td><%= bike.valve_per_cylinder %></td>
+      </tr>
+      <tr>
+        <td>Fuel Supply</td>
+        <td><%= bike.fuel_supply %></td>
+      </tr>
+      <tr>
+        <td>Clutch</td>
+        <td><%= bike.clutch %></td>
+      </tr>
+      <tr>
+        <td>Starting</td>
+        <td><%= bike.starting %></td>
+      </tr>
+      <tr>
+        <td>Ignition</td>
+        <td><%= bike.ignition %></td>
+      </tr>
+      <tr>
+        <td>Gear Box</td>
+        <td><%= bike.gear_box %></td>
+      </tr>
+      <tr>
+        <td>Bore</td>
+        <td><%= bike.bore %></td>
+      </tr>
+      <tr>
+        <td>Stroke</td>
+        <td><%= bike.stroke %></td>
+      </tr>
+      <tr>
+        <td>City Mileage</td>
+        <td><%= bike.city_mileage %></td>
+      </tr>
+      <tr>
+        <td>Body Type</td>
+        <td><%= bike.body_type %></td>
+      </tr>
+      <tr>
+        <td>0-100 Kmph (sec)</td>
+        <td><%= bike.acceleration_time %></td>
+      </tr>
+      <tr>
+        <td>Peak Power</td>
+        <td><%= bike.peak_power %></td>
+      </tr>
+      <tr>
+        <td>Transmission</td>
+        <td><%= bike.transmission %></td>
+      </tr>
+    </table>
+    <img src="<%= bike.image_url %>" alt="<%= bike.variant_name %> Image" />
+    <a href="/">Back to Search</a>
+  </body>
+</html>

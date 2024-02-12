@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Fetch and display data
+
     fetch('/api/bikefeatures')
         .then(response => {
             if (!response.ok) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const filterForm = document.getElementById('filterForm');
     const filterResultsDiv = document.getElementById('filterResults');
 
-    // Handle form submission for filtering
+
     filterForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const filterField = document.getElementById('filterField').value;
@@ -47,3 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const searchButton = document.getElementById('searchButton');
+
+    searchButton.addEventListener('click', function () {
+        const searchTerm = document.getElementById('bikeSearchInput').value.trim().toLowerCase();
+        window.location.href = `/search?term=${searchTerm}`;
+    });
+});
+
