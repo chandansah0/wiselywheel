@@ -30,29 +30,15 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
   res.render('admin');
 });
+app.get('/admin/filterResults', (req, res) => {
+  const filterField = req.query.filterField;
+  const filterValue = req.query.filterValue;
 
-app.get('/compare', (req, res) => {
-  res.render('Comparebike');
-});
+  // Fetch filtered results from the database using filterField and filterValue
+  // Example: const filteredData = fetchDataFromDatabase(filterField, filterValue);
 
-app.get('/api/bikefeatures', async (req, res) => {
-  try {
-    const searchTerm = req.query.term; // Extract search term from query string
-
-    let query = {}; // Define an empty query object
-
-    // If search term exists, add a regular expression to match variant_name
-    if (searchTerm) {
-      query = { variant_name: new RegExp(searchTerm, 'i') };
-    }
-
-    // Use the query object to search for bikes
-    const bikes = await BikeModel.find(query);
-    res.json(bikes);
-  } catch (error) {
-    console.error('Error fetching bike options:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+  // Render a new page with the filtered results
+  res.render('filteredResults', { filterField, filterValue, /* Add filtered data here */ });
 });
 
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
