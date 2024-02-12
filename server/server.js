@@ -45,6 +45,9 @@ app.get('/admin', (req, res) => {
   res.render('admin');
 });
 
+app.get('/browse', (req, res) => {
+  res.render('Browsebike');
+});
 app.get('/compare', (req, res) => {
   res.render('Comparebike');
 });
