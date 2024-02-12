@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(data => {
-            // document.getElementById('fetchedData').textContent = JSON.stringify(data, null, 2);
+            document.getElementById('fetchedData').textContent = JSON.stringify(data, null, 2);
         })
         .catch(error => {
             console.error('Error fetching data:', error);

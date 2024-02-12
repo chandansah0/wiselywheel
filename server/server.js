@@ -3,6 +3,7 @@ const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const axios = require('axios'); // Use axios instead of node-fetch for HTTP requests
 
 const app = express();
 const PORT = 3000;
@@ -23,6 +24,19 @@ mongoose.connect('mongodb://localhost:27017/WiselyWheel', { useNewUrlParser: tru
 
 app.use('/api/bikefeatures', bikeRouter);
 
+// Proxy endpoint to forward requests to the external API
+app.get('/api/external-bike-data', async (req, res) => {
+  try {
+    const { budget } = req.query;
+    const response = await axios.get(`http://external-api-url/api/bikefeatures?budget=${budget}`);
+    const data = response.data;
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching data from external API:', error);
+    res.status(500).json({ error: 'An error occurred while fetching data from external API' });
+  }
+});
+
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -35,24 +49,4 @@ app.get('/compare', (req, res) => {
   res.render('Comparebike');
 });
 
-app.get('/api/bikefeatures', async (req, res) => {
-  try {
-    const searchTerm = req.query.term; // Extract search term from query string
-
-    let query = {}; // Define an empty query object
-
-    // If search term exists, add a regular expression to match variant_name
-    if (searchTerm) {
-      query = { variant_name: new RegExp(searchTerm, 'i') };
-    }
-
-    // Use the query object to search for bikes
-    const bikes = await BikeModel.find(query);
-    res.json(bikes);
-  } catch (error) {
-    console.error('Error fetching bike options:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));

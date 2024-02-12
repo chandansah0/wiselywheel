@@ -8,11 +8,36 @@
       href="/wiselywheel/client/public/stylesheets/style.css"
     />
     <title>Compare Bikes</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .winner {
+        background-color: #c1f0c1;
+      }
+
+      .pros-cons {
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
     <header>
       <img
-        src="wiselywheel/client/public/image/l2.png"
+        src="/wiselywheel/client/public/image/l2.png"
         alt="WiselyWheel"
         width="150mm"
         height="100mm"
@@ -32,13 +57,25 @@
     <main>
       <h3>Compare Bikes</h3>
 
-      <label for="bike1">Select Bike 1:</label>
-      <select id="bike1"></select>
+      <label for="budget">Choose Budget:</label>
+      <select id="budget">
+        <option value="0-50000">0 - 50,000</option>
+        <option value="50001-100000">50,001 - 100,000</option>
+        <option value="100001-150000">100,001 - 150,000</option>
+        <option value="150001-200000">150,001 - 200,000</option>
+        <option value="200001-250000">200,001 - 250,000</option>
+        <option value="250001-300000">250,001 - 300,000</option>
+      </select>
 
-      <label for="bike2">Select Bike 2:</label>
-      <select id="bike2"></select>
+      <div id="bikeSelection">
+        <label for="bike1">Select Bike 1:</label>
+        <select id="bike1"></select>
 
-      <button onclick="compareBikes()">Compare</button>
+        <label for="bike2">Select Bike 2:</label>
+        <select id="bike2"></select>
+      </div>
+
+      <button id="compareButton">Compare</button>
 
       <div id="comparisonResult"></div>
     </main>
@@ -47,100 +84,6 @@
       <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
     </footer>
 
-    <script>
-      // Function to populate bike options in the select elements
-      async function populateBikeOptions() {
-        try {
-          // Fetch the list of bikes from the server
-          const response = await fetch("/api/bikefeatures");
-          const bikes = await response.json();
-
-          // Get references to the select elements
-          const bike1Select = document.getElementById("bike1");
-          const bike2Select = document.getElementById("bike2");
-
-          // Populate the select elements with bike options
-          bikes.forEach((bike) => {
-            const option = document.createElement("option");
-            option.text = bike.variant_name;
-            option.value = bike._id;
-            bike1Select.add(option);
-            bike2Select.add(option.cloneNode(true)); // Clone the option for the second select
-          });
-        } catch (error) {
-          console.error("Error fetching bike options:", error);
-        }
-      }
-
-      // Function to compare selected bikes
-      async function compareBikes() {
-        const bike1Id = document.getElementById("bike1").value;
-        const bike2Id = document.getElementById("bike2").value;
-
-        try {
-          // Fetch bike details for comparison
-          const response = await fetch("http://localhost:3000/api/bikefeatures/compare", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ bikeIds: [bike1Id, bike2Id] }),
-          });
-          const bikes = await response.json();
-
-          // Display comparison result
-          const comparisonResultElement =
-            document.getElementById("comparisonResult");
-          comparisonResultElement.innerHTML = `
-                    <h2>Comparison Result:</h2>
-                    <div>
-                        <h3>${bikes[0].variant_name}</h3>
-                        <!-- Display bike details here -->
-                    </div>
-                    <div>
-                        <h3>${bikes[1].variant_name}</h3>
-                        <!-- Display bike details here -->
-                    </div>
-                `;
-        } catch (error) {
-          console.error("Error comparing bikes:", error);
-        }
-      }
-
-      // Call the function to populate bike options when the page loads
-      populateBikeOptions();
-
-      // Function to search for bikes
-      async function searchBikes() {
-        const searchTerm = document.getElementById("search").value;
-
-        try {
-          // Fetch the list of bikes matching the search term from the server
-          const response = await fetch(
-            `http://localhost:3000/api/bikefeatures/search?term=${searchTerm}`
-          );
-          const matchingBikes = await response.json();
-
-          // Clear the previous options in the select elements
-          document.getElementById("bike1").innerHTML = "";
-          document.getElementById("bike2").innerHTML = "";
-
-          // Populate the select elements with matching bike options
-          matchingBikes.forEach((bike) => {
-            const option1 = document.createElement("option");
-            option1.text = bike.variant_name;
-            option1.value = bike._id;
-            document.getElementById("bike1").add(option1);
-
-            const option2 = document.createElement("option");
-            option2.text = bike.variant_name;
-            option2.value = bike._id;
-            document.getElementById("bike2").add(option2);
-          });
-        } catch (error) {
-          console.error("Error searching for bikes:", error);
-        }
-      }
-    </script>
+    <script src="/wiselywheel/client/public/javascripts/Compare.js"></script>
   </body>
 </html>
