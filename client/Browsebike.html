@@ -221,28 +221,29 @@
           );
       }
 
-      function loadBikesByPrice(price) {
-        fetch(`/api/bikefeatures?on_road_price=${price}`)
+      function filterByPrice(minPrice, maxPrice) {
+        fetch(`/api/bikefeatures?minPrice=${minPrice}&maxPrice=${maxPrice}`)
           .then((response) => response.json())
-          .then((bikes) => displayBikes(bikes))
+          .then((bikes) => {
+            const bikeList = document.getElementById("bikeList");
+            bikeList.innerHTML = "";
+            bikes.forEach((bike) => {
+              const listItem = document.createElement("div");
+              listItem.classList.add("bike-item");
+              listItem.innerHTML = `
+                <img src="${bike.image}" alt="${bike.variant_name}" />
+                <h4>${bike.variant_name}</h4>
+                <p>Price: Rs${bike.price}</p>
+              `;
+              listItem.addEventListener("click", () => {
+                window.location.href = `/bikeDetails?id=${bike._id}`;
+              });
+              bikeList.appendChild(listItem);
+            });
+          })
           .catch((error) => console.error("Error fetching bikes:", error));
       }
-
-      function displayBikes(bikes) {
-        const bikeList = document.getElementById("bikeList");
-        bikeList.innerHTML = "";
-        bikes.forEach((bike) => {
-          const listItem = document.createElement("div");
-          listItem.classList.add("bike-item");
-          listItem.innerHTML = `
-              <img src="${bike.image}" alt="${bike.name}" />
-              <h4>${bike.variant_name}</h4>
-              <p>Price: ₹${bike.on_road_price}</p>
-              <!-- Add more details as needed -->
-            `;
-          bikeList.appendChild(listItem);
-        });
-      }
+      
     </script>
   </body>
 </html>

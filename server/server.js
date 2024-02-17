@@ -67,7 +67,7 @@ app.get('/api/bikefeatures/brand/:brandName', async (req, res) => {
   }
 });
 
-// Route for displaying detailed information about a specific bike
+
 
 
 app.get('/bikeDetails', async (req, res) => {
@@ -85,12 +85,11 @@ app.get('/bikeDetails', async (req, res) => {
   }
 });
 
-// Route for fetching bikes by price range
 app.get('/api/bikefeatures/price', async (req, res) => {
   const minPrice = parseInt(req.query.minPrice) || 0;
   const maxPrice = parseInt(req.query.maxPrice) || Infinity;
   try {
-    // Query the database for bikes within the specified price range
+   
     const bikes = await BikeModel.find({ price: { $gte: minPrice, $lte: maxPrice } });
     res.json(bikes);
   } catch (error) {
