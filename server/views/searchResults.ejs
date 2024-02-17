@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Search Results</title>
+  </head>
+  <body>
+    <header>
+      <h1>Search Results</h1>
+    </header>
+
+    <section class="search-results">
+      <% searchResults.forEach(bike => { %>
+      <a href="/bikeDetails?id=<%= bike._id %>"
+        ><%= bike.variant_name %> - <%= bike.brand %></a
+      ><br />
+      <% }); %>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

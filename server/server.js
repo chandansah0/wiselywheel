@@ -97,6 +97,16 @@ app.get('/api/bikefeatures/price', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+// Route for displaying search results
+app.get('/searchResults', async (req, res) => {
+  const searchTerm = req.query.search;
+  try {
+    const bikes = await BikeModel.find({ brand: { $regex: new RegExp(searchTerm, 'i') } });
+    res.render('searchResults', { searchResults: bikes });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 
