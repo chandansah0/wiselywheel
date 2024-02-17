@@ -10,46 +10,81 @@
     <h1>Bike Details</h1>
     <table>
       <tr>
-        <th>Brand</th>
-        <th>Variant Name</th>
-        <th>Price</th>
-        <th>Engine Type</th>
-        <th>Displacement</th>
-        <th>Max Torque</th>
-        <th>Cooling System</th>
-        <th>Valve Per Cylinder</th>
-        <th>Starting</th>
-        <th>Fuel Supply</th>
-        <th>Clutch</th>
-        <th>Ignition</th>
-        <th>Mileage</th>
-        <th>Body Type</th>
-        <th>0-100 Kmph (sec)</th>
-        <th>Peak Power</th>
-        <th>Transmission</th>
+        <th>Attribute</th>
+        <th>Value</th>
       </tr>
       <% bikes.forEach(bike => { %>
-      <tr>
-        <td><%= bike.brand %></td>
-        <td><%= bike.variant_name %></td>
-        <td><%= bike.price %></td>
-        <td><%= bike.engine_type %></td>
-        <td><%= bike.displacement %></td>
-        <td><%= bike.max_torque %></td>
-        <td><%= bike.cooling_system %></td>
-        <td><%= bike.valve_per_cylinder %></td>
-        <td><%= bike.starting %></td>
-        <td><%= bike.fuel_supply %></td>
-        <td><%= bike.clutch %></td>
-        <td><%= bike.ignition %></td>
-        <td><%= bike.mileage %></td>
-        <td><%= bike.bodytype %></td>
-        <td><%= bike.zero_100Kmph_sec %></td>
-        <td><%= bike.peak_power %></td>
-        <td><%= bike.transmission %></td>
-      </tr>
+        <tr>
+          <td>Brand</td>
+          <td><%= bike.brand %></td>
+        </tr>
+        <tr>
+          <td>Variant Name</td>
+          <td><%= bike.variant_name %></td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td><%= bike.price %></td>
+        </tr>
+        <tr>
+          <td>Engine Type</td>
+          <td><%= bike.engine_type %></td>
+        </tr>
+        <tr>
+          <td>Displacement</td>
+          <td><%= bike.displacement %></td>
+        </tr>
+        <tr>
+          <td>Max Torque</td>
+          <td><%= bike.max_torque %></td>
+        </tr>
+        <tr>
+          <td>Cooling System</td>
+          <td><%= bike.cooling_system %></td>
+        </tr>
+        <tr>
+          <td>Valve Per Cylinder</td>
+          <td><%= bike.valve_per_cylinder %></td>
+        </tr>
+        <tr>
+          <td>Starting</td>
+          <td><%= bike.starting %></td>
+        </tr>
+        <tr>
+          <td>Fuel Supply</td>
+          <td><%= bike.fuel_supply %></td>
+        </tr>
+        <tr>
+          <td>Clutch</td>
+          <td><%= bike.clutch %></td>
+        </tr>
+        <tr>
+          <td>Ignition</td>
+          <td><%= bike.ignition %></td>
+        </tr>
+        <tr>
+          <td>Mileage</td>
+          <td><%= bike.mileage %></td>
+        </tr>
+        <tr>
+          <td>Body Type</td>
+          <td><%= bike.bodytype %></td>
+        </tr>
+        <tr>
+          <td>0-100 Kmph (sec)</td>
+          <td><%= bike.zero_100Kmph_sec %></td>
+        </tr>
+        <tr>
+          <td>Peak Power</td>
+          <td><%= bike.peak_power %></td>
+        </tr>
+        <tr>
+          <td>Transmission</td>
+          <td><%= bike.transmission %></td>
+        </tr>
       <% }); %>
     </table>
+    
     <% if (bikes.length > 0) { %>
     <img src="<%= bikes[0].image_url %>" alt="Bike Image" />
     <% } %>
