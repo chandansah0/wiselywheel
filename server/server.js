@@ -101,11 +101,11 @@ app.get('/searchResults', async (req, res) => {
   const searchTerm = req.query.searchTerm.toLowerCase();
 
   try {
-    // Query the database for bikes that match the search term
+    
     const filteredBikes = await BikeModel.find({
       $or: [
-        { brand: { $regex: searchTerm, $options: 'i' } }, // Case-insensitive search for brand
-        { variant_name: { $regex: searchTerm, $options: 'i' } } // Case-insensitive search for variant name
+        { brand: { $regex: searchTerm, $options: 'i' } }, 
+        { variant_name: { $regex: searchTerm, $options: 'i' } } 
       ]
     });
 

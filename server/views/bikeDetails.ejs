@@ -5,86 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bike Details</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      td {
+        border-left: 1px solid #dddddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <header>
+      <img
+        src="/image/logo.png"
+        alt="WiselyWheel"
+        width="150mm"
+        height="100mm"
+      />
+      <nav>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Browsebike.html">Browse Bikes</a></li>
+        <li><a href="Comparebike.html">Compare Bikes</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </nav>
+    </header>
   </head>
   <body>
-    <h1>Bike Details</h1>
+    <!-- <h1>Bike Details</h1> -->
     <table>
       <tr>
-        <th>Attribute</th>
+        <th>Bike Details</th>
         <th>Value</th>
       </tr>
       <% bikes.forEach(bike => { %>
-        <tr>
-          <td>Brand</td>
-          <td><%= bike.brand %></td>
-        </tr>
-        <tr>
-          <td>Variant Name</td>
-          <td><%= bike.variant_name %></td>
-        </tr>
-        <tr>
-          <td>Price</td>
-          <td><%= bike.price %></td>
-        </tr>
-        <tr>
-          <td>Engine Type</td>
-          <td><%= bike.engine_type %></td>
-        </tr>
-        <tr>
-          <td>Displacement</td>
-          <td><%= bike.displacement %></td>
-        </tr>
-        <tr>
-          <td>Max Torque</td>
-          <td><%= bike.max_torque %></td>
-        </tr>
-        <tr>
-          <td>Cooling System</td>
-          <td><%= bike.cooling_system %></td>
-        </tr>
-        <tr>
-          <td>Valve Per Cylinder</td>
-          <td><%= bike.valve_per_cylinder %></td>
-        </tr>
-        <tr>
-          <td>Starting</td>
-          <td><%= bike.starting %></td>
-        </tr>
-        <tr>
-          <td>Fuel Supply</td>
-          <td><%= bike.fuel_supply %></td>
-        </tr>
-        <tr>
-          <td>Clutch</td>
-          <td><%= bike.clutch %></td>
-        </tr>
-        <tr>
-          <td>Ignition</td>
-          <td><%= bike.ignition %></td>
-        </tr>
-        <tr>
-          <td>Mileage</td>
-          <td><%= bike.mileage %></td>
-        </tr>
-        <tr>
-          <td>Body Type</td>
-          <td><%= bike.bodytype %></td>
-        </tr>
-        <tr>
-          <td>0-100 Kmph (sec)</td>
-          <td><%= bike.zero_100Kmph_sec %></td>
-        </tr>
-        <tr>
-          <td>Peak Power</td>
-          <td><%= bike.peak_power %></td>
-        </tr>
-        <tr>
-          <td>Transmission</td>
-          <td><%= bike.transmission %></td>
-        </tr>
+      <tr>
+        <td>Brand</td>
+        <td><%= bike.brand %></td>
+      </tr>
+      <tr>
+        <td>Variant Name</td>
+        <td><%= bike.variant_name %></td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td><%= bike.price %></td>
+      </tr>
+      <tr>
+        <td>Engine Type</td>
+        <td><%= bike.engine_type %></td>
+      </tr>
+      <tr>
+        <td>Displacement</td>
+        <td><%= bike.displacement %></td>
+      </tr>
+      <tr>
+        <td>Max Torque</td>
+        <td><%= bike.max_torque %></td>
+      </tr>
+      <tr>
+        <td>Cooling System</td>
+        <td><%= bike.cooling_system %></td>
+      </tr>
+      <tr>
+        <td>Valve Per Cylinder</td>
+        <td><%= bike.valve_per_cylinder %></td>
+      </tr>
+      <tr>
+        <td>Starting</td>
+        <td><%= bike.starting %></td>
+      </tr>
+      <tr>
+        <td>Fuel Supply</td>
+        <td><%= bike.fuel_supply %></td>
+      </tr>
+      <tr>
+        <td>Clutch</td>
+        <td><%= bike.clutch %></td>
+      </tr>
+      <tr>
+        <td>Ignition</td>
+        <td><%= bike.ignition %></td>
+      </tr>
+      <tr>
+        <td>Mileage</td>
+        <td><%= bike.mileage %></td>
+      </tr>
+      <tr>
+        <td>Body Type</td>
+        <td><%= bike.bodytype %></td>
+      </tr>
+      <tr>
+        <td>0-100 Kmph (sec)</td>
+        <td><%= bike.zero_100Kmph_sec %></td>
+      </tr>
+      <tr>
+        <td>Peak Power</td>
+        <td><%= bike.peak_power %></td>
+      </tr>
+      <tr>
+        <td>Transmission</td>
+        <td><%= bike.transmission %></td>
+      </tr>
       <% }); %>
     </table>
-    
+
     <% if (bikes.length > 0) { %>
     <img src="<%= bikes[0].image_url %>" alt="Bike Image" />
     <% } %>
@@ -103,9 +140,9 @@
               if (Object.hasOwnProperty.call(bike, key)) {
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                              <th>${key}</th>
-                              <td>${bike[key]}</td>
-                          `;
+                            <th>${key}</th>
+                            <td>${bike[key]}</td>
+                        `;
                 table.appendChild(row);
               }
             }
