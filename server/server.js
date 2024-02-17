@@ -68,22 +68,9 @@ app.get('/api/bikefeatures/brand/:brandName', async (req, res) => {
 });
 
 // Route for displaying detailed information about a specific bike
-app.get('/bikes', async (req, res) => {
-  const brand = req.query.brand;
-  try {
 
-    const bikes = await BikeModel.find({ brand: brand });
-    if (!bikes || bikes.length === 0) {
 
-      return res.status(404).json({ message: `No bikes found for brand ${brand}` });
-    }
-    res.render('bikeDetails', { bikes: bikes });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-app.get('/bike-details', async (req, res) => {
+app.get('/bikeDetails', async (req, res) => {
   const bikeId = req.query.id;
   try {
     const bike = await BikeModel.findById(bikeId);
@@ -99,9 +86,9 @@ app.get('/bike-details', async (req, res) => {
 });
 
 // Route for fetching bikes by price range
-app.get('/api/bikefeatures', async (req, res) => {
-  const minPrice = req.query.minPrice ? parseInt(req.query.minPrice) : 0;
-  const maxPrice = req.query.maxPrice ? parseInt(req.query.maxPrice) : Infinity;
+app.get('/api/bikefeatures/price', async (req, res) => {
+  const minPrice = parseInt(req.query.minPrice) || 0;
+  const maxPrice = parseInt(req.query.maxPrice) || Infinity;
   try {
     // Query the database for bikes within the specified price range
     const bikes = await BikeModel.find({ price: { $gte: minPrice, $lte: maxPrice } });

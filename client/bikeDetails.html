@@ -43,8 +43,8 @@
         <td><%= bike.clutch %></td>
         <td><%= bike.ignition %></td>
         <td><%= bike.mileage %></td>
-        <td><%= bike.bodytype %></td>
-        <td><%= bike.zero_100Kmph_sec %></td>
+        <td><%= bike.body_type %></td>
+        <td><%= bike.zero_to_100 %></td>
         <td><%= bike.peak_power %></td>
         <td><%= bike.transmission %></td>
       </tr>
@@ -59,7 +59,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const bikeId = urlParams.get("id");
 
-        fetch(`/api/bikefeatures/${bikeId}`)
+        fetch(`http://localhost:3000/api/bikefeatures/${bikeId}`)
           .then((response) => response.json())
           .then((bike) => {
             const bikeDetailsContainer = document.getElementById("bikeDetails");
@@ -68,9 +68,9 @@
               if (Object.hasOwnProperty.call(bike, key)) {
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                              <th>${key}</th>
-                              <td>${bike[key]}</td>
-                          `;
+                          <th>${key}</th>
+                          <td>${bike[key]}</td>
+                      `;
                 table.appendChild(row);
               }
             }

@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(data => {
-                console.log('Data:', data); 
-
                 const searchResultsDiv = document.getElementById('searchResults');
                 searchResultsDiv.innerHTML = '';
 
@@ -30,17 +28,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (searchTerm) {
                     const filteredBikes = data.filter(bike => {
-                        // Add a null check for variant_name
-                        if (bike.variant_name) {
-                            return bike.variant_name.toLowerCase().includes(searchTerm);
+                        // Filter bikes by brand name
+                        if (bike.brand) {
+                            return bike.brand.toLowerCase().includes(searchTerm);
                         }
                         return false;
                     });
 
                     filteredBikes.forEach(bike => {
-                        const bikeElement = document.createElement('div');
-                        bikeElement.textContent = `Bike: ${bike.variant_name}, Price: ${bike['On-road prize']}`;
-                        searchResultsDiv.appendChild(bikeElement);
+                        // Create a link for each bike to view details on a new page
+                        const bikeLink = document.createElement('a');
+                        bikeLink.href = `/bikeDetails?id=${bike._id}`;
+                        bikeLink.textContent = `${bike.variant_name} - ${bike.brand}`;
+                        bikeLink.classList.add('bike-link');
+                        searchResultsDiv.appendChild(bikeLink);
                     });
                 } else {
                     console.log('No search term provided');
@@ -51,4 +52,3 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
-
