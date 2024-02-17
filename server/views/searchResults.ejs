@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <style>
+      /* Center the search button */
+      #searchForm {
+        text-align: center;
+        margin-bottom: 3mm; /* Add distance between search form and search results */
+      }
+
+      /* Shift the search results slightly to the right */
+      .search-results {
+        margin-left: 5mm;
+      }
+
+      /* Add margin to each search result */
+      .search-results a {
+        display: block;
+        margin-bottom: 5mm;
+      }
+    </style>
     <title>Search Results</title>
   </head>
   <body>
@@ -11,16 +29,41 @@
       <h1>Search Results</h1>
     </header>
 
+    <!-- Search form for searching another bike -->
+    <form id="searchForm">
+      <input
+        type="text"
+        id="bikeSearchInput"
+        placeholder="Search another bike"
+      />
+      <button type="submit">Search</button>
+    </form>
+
     <section class="search-results">
       <% searchResults.forEach(bike => { %>
       <a href="/bikeDetails?id=<%= bike._id %>"
         ><%= bike.variant_name %> - <%= bike.brand %></a
-      ><br />
+      >
       <% }); %>
     </section>
 
     <footer>
       <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchForm = document.getElementById("searchForm");
+
+        searchForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const searchTerm = document
+            .getElementById("bikeSearchInput")
+            .value.trim()
+            .toLowerCase();
+          window.location.href = `/searchResults?searchTerm=${searchTerm}`;
+        });
+      });
+    </script>
   </body>
 </html>
