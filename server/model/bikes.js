@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
 const bikefeatureSchema = new mongoose.Schema({
+  brand: String,
   variant_name: String,
-  on_road_price: Number,
+  price: Number,
   engine_type: String,
   displacement: String,
   max_torque: String,

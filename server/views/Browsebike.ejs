@@ -8,7 +8,7 @@
     <style>
       .filters {
         display: flex;
-        justify-content: flex-start; /* Changed from space-between */
+        justify-content: flex-start;
         align-items: center;
         margin-bottom: 20px;
       }
@@ -21,7 +21,7 @@
         cursor: pointer;
         transition: background-color 0.3s;
         border-bottom: 2px solid transparent;
-        margin-right: 10px; /* Reduced margin between buttons */
+        margin-right: 10px;
       }
 
       .filters button:hover {
@@ -29,14 +29,14 @@
       }
 
       .filters button.active {
-        border-bottom: 2px solid blue; /* Change color for active button */
+        border-bottom: 2px solid blue;
       }
 
       .options-container {
         display: flex;
-        justify-content: flex-start; /* Changed from space-between */
+        justify-content: flex-start;
         overflow: hidden;
-        height: auto; /* Change from 0 to auto */
+        height: auto;
         transition: height 0.3s ease-out;
       }
 
@@ -65,13 +65,13 @@
       }
 
       .options-container .brand-option:hover,
-      .options-container .budget-option:hover {
-        background-color: lightgray; /* Change color on hover */
+      .options-container .price-option:hover {
+        background-color: lightgray;
       }
 
-      .options-container .budget-option.active {
-        background-color: lightgreen; /* Change color for active budget option */
-        color: white; /* Change text color */
+      .options-container .price-option.active {
+        background-color: lightgreen;
+        color: white;
       }
 
       .brand-img {
@@ -97,58 +97,60 @@
 
     <main>
       <h3>Browse Bike By:</h3>
+
       <div class="filters">
-        <button onclick="showBrandOptions()" id="brandBtn" class="active">
+        <button onclick="showBrand()" id="brandBtn" class="active">
           Brand
         </button>
-        <button
-          onclick="showBudgetOptions()"
-          id="budgetBtn"
-          style="padding-right: 20px"
-        >
-          Budget
+        <button onclick="showPrice()" id="priceBtn" style="padding-right: 20px">
+          Price
         </button>
       </div>
 
       <div class="options-container" id="optionsContainer">
         <div class="brands-container" id="brandOptions">
-          <button class="brand-option" onclick="loadBikesByBrand('honda')">
+          <button class="brand-option" onclick="loadBikesByBrand('Honda')">
             <img src="/image/honda.png" alt="Honda" class="brand-img" />
           </button>
-          <button class="brand-option" onclick="loadBikesByBrand('yamaha')">
+          <button class="brand-option" onclick="loadBikesByBrand('Yamaha')">
             <img src="/image/yamaha.png" alt="Yamaha" class="brand-img" />
           </button>
-          <button class="brand-option" onclick="loadBikesByBrand('bajaj')">
+          <button class="brand-option" onclick="loadBikesByBrand('Bajaj')">
             <img src="/image/bajaj.png" alt="Bajaj" class="brand-img" />
           </button>
-          <button class="brand-option" onclick="loadBikesByBrand('tvs')">
+          <button class="brand-option" onclick="loadBikesByBrand('TVS')">
             <img src="/image/tvs.webp" alt="TVS" class="brand-img" />
           </button>
         </div>
-        <div class="budgets-container" id="budgetOptions" style="display: none">
-          <button class="budget-option" onclick="loadBikesByBudget('150000')">
-            Under ₹1.5 lakh
-          </button>
-          <button class="budget-option" onclick="loadBikesByBudget('180000')">
-            Under ₹1.8 lakh
-          </button>
-          <button class="budget-option" onclick="loadBikesByBudget('200000')">
-            Under ₹2 lakh
-          </button>
-          <button class="budget-option" onclick="loadBikesByBudget('250000')">
+        <div id="bikeOptions"></div>
+        <div
+          class="price-options-container"
+          id="priceOptions"
+          style="display: none"
+        >
+          <button class="price-option" onclick="loadBikesByPrice('250000')">
             Under ₹2.5 lakh
           </button>
-          <button class="budget-option" onclick="loadBikesByBudget('100000')">
+          <button class="price-option" onclick="loadBikesByPrice('300000')">
             Under ₹3 lakh
           </button>
-          <button class="budget-option" onclick="loadBikesByBudget('350000')">
+          <button class="price-option" onclick="loadBikesByPrice('350000')">
             Under ₹3.5 lakh
           </button>
-          <button class="budget-option" onclick="loadBikesByBudget('400000')">
+          <button class="price-option" onclick="loadBikesByPrice('400000')">
             Under ₹4 lakh
           </button>
-          <button class="budget-option" onclick="loadBikesByBudget('500000')">
-            Above ₹5 lakh
+          <button class="price-option" onclick="loadBikesByPrice('450000')">
+            Under ₹4.5 lakh
+          </button>
+          <button class="price-option" onclick="loadBikesByPrice('500000')">
+            Under ₹5 lakh
+          </button>
+          <button class="price-option" onclick="loadBikesByPrice('550000')">
+            Under ₹5.5 lakh
+          </button>
+          <button class="price-option" onclick="loadBikesByPrice('600000')">
+            Under ₹6 lakh
           </button>
         </div>
       </div>
@@ -160,31 +162,57 @@
       <p>&copy; 2024 WiselyWheel. All rights reserved.</p>
     </footer>
 
-    <script src="/javascripts/script2.js"></script>
     <script>
-      function showBrandOptions() {
-        document.getElementById("brandOptions").style.display = "flex";
-        document.getElementById("budgetOptions").style.display = "none";
-        document.getElementById("brandBtn").classList.add("active");
-        document.getElementById("budgetBtn").classList.remove("active");
+      function showBrand() {
+        const brandOptions = document.getElementById("brandOptions");
+        const priceOptions = document.getElementById("priceOptions");
+        const brandBtn = document.getElementById("brandBtn");
+        const priceBtn = document.getElementById("priceBtn");
+
+        brandOptions.style.display = "flex";
+        priceOptions.style.display = "none";
+        brandBtn.classList.add("active");
+        priceBtn.classList.remove("active");
       }
 
-      function showBudgetOptions() {
-        document.getElementById("budgetOptions").style.display = "flex";
-        document.getElementById("brandOptions").style.display = "none";
-        document.getElementById("budgetBtn").classList.add("active");
-        document.getElementById("brandBtn").classList.remove("active");
+      function showPrice() {
+        const brandOptions = document.getElementById("brandOptions");
+        const priceOptions = document.getElementById("priceOptions");
+        const brandBtn = document.getElementById("brandBtn");
+        const priceBtn = document.getElementById("priceBtn");
+
+        priceOptions.style.display = "flex";
+        brandOptions.style.display = "none";
+        priceBtn.classList.add("active");
+        brandBtn.classList.remove("active");
       }
 
       function loadBikesByBrand(brand) {
-        fetch(`/api/bikefeatures?brand=${brand}`)
+        fetch(`/api/bikefeatures/brand/${brand}`)
           .then((response) => response.json())
-          .then((bikes) => displayBikes(bikes))
-          .catch((error) => console.error("Error fetching bikes:", error));
+          .then((bikes) => {
+            const optionsContainer = document.getElementById("bikeOptions");
+            if (optionsContainer) {
+              optionsContainer.innerHTML = "";
+              bikes.forEach((bike) => {
+                const button = document.createElement("button");
+                button.textContent = bike.variant_name;
+                button.onclick = () => {
+                  window.location.href = `/bikeDetails?id=${bike._id}`;
+                };
+                optionsContainer.appendChild(button);
+              });
+            } else {
+              console.error("Element with ID 'bikeOptions' not found.");
+            }
+          })
+          .catch((error) =>
+            console.error("Error loading bikes by brand:", error)
+          );
       }
 
-      function loadBikesByBudget(budget) {
-        fetch(`/api/bikefeatures?budget=${budget}`)
+      function loadBikesByPrice(price) {
+        fetch(`/api/bikefeatures?price=${price}`)
           .then((response) => response.json())
           .then((bikes) => displayBikes(bikes))
           .catch((error) => console.error("Error fetching bikes:", error));
@@ -195,13 +223,13 @@
         bikeList.innerHTML = "";
         bikes.forEach((bike) => {
           const listItem = document.createElement("div");
+          listItem.classList.add("bike-item");
           listItem.innerHTML = `
-          <div class="bike-item">
-            <img src="${bike.image}" alt="${bike.name}" />
-            <h4>${bike.name}</h4>
-            <p>Price: ${bike.price}</p>
-            <p>Features: ${bike.features}</p>
-          </div>`;
+                <img src="${bike.image}" alt="${bike.variant_name}" />
+                <h4>${bike.variant_name}</h4>
+                <p>Price: ₹${bike.price}</p>
+                <!-- Add more details as needed -->
+            `;
           bikeList.appendChild(listItem);
         });
       }

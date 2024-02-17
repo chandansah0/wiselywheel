@@ -3,7 +3,7 @@ const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const axios = require('axios'); // Use axios instead of node-fetch for HTTP requests
+const axios = require('axios');
 
 const app = express();
 const PORT = 3000;
@@ -51,5 +51,53 @@ app.get('/browse', (req, res) => {
 app.get('/compare', (req, res) => {
   res.render('Comparebike');
 });
+
+
+
+
+// Route for fetching bikes by brand
+app.get('/api/bikefeatures/brand/:brandName', async (req, res) => {
+  const brandName = req.params.brandName;
+  try {
+    // Query the database for bikes with the specified brand name
+    const bikes = await BikeModel.find({ brand: brandName });
+    res.json(bikes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Route for displaying detailed information about a specific bike
+app.get('/bikes', async (req, res) => {
+  const brand = req.query.brand;
+  try {
+
+    const bikes = await BikeModel.find({ brand: brand });
+    if (!bikes || bikes.length === 0) {
+
+      return res.status(404).json({ message: `No bikes found for brand ${brand}` });
+    }
+    res.render('bikeDetails', { bikes: bikes });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get('/bike-details', async (req, res) => {
+  const bikeId = req.query.id;
+  try {
+    const bike = await BikeModel.findById(bikeId);
+    if (!bike) {
+      return res.status(404).json({ message: "Bike not found" });
+    }
+    
+    res.render('bikeDetails', { bikes: [bike] }); 
+  } catch (error) {
+    
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
 
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
