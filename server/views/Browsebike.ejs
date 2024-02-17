@@ -84,14 +84,12 @@
     <header>
       <img src="/image/l2.png" alt="WiselyWheel" width="150mm" height="100mm" />
       <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="Browsebike.html">Browse Bikes</a></li>
-          <li><a href="Comparebike.html">Compare Bikes</a></li>
-          <li><a href="admin.html">Admin</a></li>
-          <li><a href="aboutus.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Browsebike.html">Browse Bikes</a></li>
+        <li><a href="Comparebike.html">Compare Bikes</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </nav>
     </header>
 
@@ -128,29 +126,29 @@
           id="priceOptions"
           style="display: none"
         >
-          <button class="price-option" onclick="loadBikesByPrice('250000')">
-            Under ₹2.5 lakh
+          <button class="price-option" onclick="filterByPrice('0,250000')">
+            Under Rs2.5 lakh
           </button>
-          <button class="price-option" onclick="loadBikesByPrice('300000')">
-            Under ₹3 lakh
+          <button class="price-option" onclick="filterByPrice('250001,300000')">
+            Under Rs3 lakh
           </button>
-          <button class="price-option" onclick="loadBikesByPrice('350000')">
-            Under ₹3.5 lakh
+          <button class="price-option" onclick="filterByPrice('300001,350000')">
+            Under Rs3.5 lakh
           </button>
-          <button class="price-option" onclick="loadBikesByPrice('400000')">
-            Under ₹4 lakh
+          <button class="price-option" onclick="filterByPrice('350001,400000')">
+            Under Rs4 lakh
           </button>
-          <button class="price-option" onclick="loadBikesByPrice('450000')">
-            Under ₹4.5 lakh
+          <button class="price-option" onclick="filterByPrice('400001,450000')">
+            Under Rs4.5 lakh
           </button>
-          <button class="price-option" onclick="loadBikesByPrice('500000')">
-            Under ₹5 lakh
+          <button class="price-option" onclick="filterByPrice('450001,500000')">
+            Under Rs5 lakh
           </button>
-          <button class="price-option" onclick="loadBikesByPrice('550000')">
-            Under ₹5.5 lakh
+          <button class="price-option" onclick="filterByPrice('500001,550000')">
+            Under Rs5.5 lakh
           </button>
-          <button class="price-option" onclick="loadBikesByPrice('600000')">
-            Under ₹6 lakh
+          <button class="price-option" onclick="filterByPrice('550001,600000')">
+            Under Rs6 lakh
           </button>
         </div>
       </div>
@@ -211,13 +209,6 @@
           );
       }
 
-      function loadBikesByPrice(price) {
-        fetch(`/api/bikefeatures?price=${price}`)
-          .then((response) => response.json())
-          .then((bikes) => displayBikes(bikes))
-          .catch((error) => console.error("Error fetching bikes:", error));
-      }
-
       function displayBikes(bikes) {
         const bikeList = document.getElementById("bikeList");
         bikeList.innerHTML = "";
@@ -227,11 +218,18 @@
           listItem.innerHTML = `
                 <img src="${bike.image}" alt="${bike.variant_name}" />
                 <h4>${bike.variant_name}</h4>
-                <p>Price: ₹${bike.price}</p>
+                <p>Price: Rs${bike.price}</p>
                 <!-- Add more details as needed -->
             `;
           bikeList.appendChild(listItem);
         });
+      }
+
+      function filterByPrice(minPrice, maxPrice) {
+        fetch(`/api/bikefeatures?minPrice=${minPrice}&maxPrice=${maxPrice}`)
+          .then((response) => response.json())
+          .then((bikes) => displayBikes(bikes))
+          .catch((error) => console.error("Error fetching bikes:", error));
       }
     </script>
   </body>

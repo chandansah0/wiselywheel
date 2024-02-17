@@ -83,7 +83,7 @@
   <body>
     <header>
       <img
-        src="/client/public//image/l2.png"
+        src="/client/public//image/logo.png"
         alt="WiselyWheel"
         width="150mm"
         height="100mm"
@@ -93,7 +93,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="Browsebike.html">Browse Bikes</a></li>
           <li><a href="Comparebike.html">Compare Bikes</a></li>
-          <li><a href="admin.html">Admin</a></li>
+          <li><a href="signup.html">Signup</a></li>
           <li><a href="aboutus.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -119,28 +119,28 @@
         <div class="brands-container" id="brandOptions">
           <button class="brand-option" onclick="loadBikesByBrand('Honda')">
             <img
-              src="/client/public//image/honda.png"
+              src="/client/public/image/honda.png"
               alt="Honda"
               class="brand-img"
             />
           </button>
           <button class="brand-option" onclick="loadBikesByBrand('Yamaha')">
             <img
-              src="/client/public//image/yamaha.png"
+              src="/client/public/image/yamaha.png"
               alt="Yamaha"
               class="brand-img"
             />
           </button>
           <button class="brand-option" onclick="loadBikesByBrand('Bajaj')">
             <img
-              src="/client/public//image/bajaj.png"
+              src="/client/public/image/bajaj.png"
               alt="Bajaj"
               class="brand-img"
             />
           </button>
           <button class="brand-option" onclick="loadBikesByBrand('TVS')">
             <img
-              src="/client/public//image/tvs.webp"
+              src="/client/public/image/tvs.webp"
               alt="TVS"
               class="brand-img"
             />
@@ -215,7 +215,6 @@
         fetch(`http://localhost:3000/api/bikefeatures/brand/${brand}`)
           .then((response) => response.json())
           .then((bikes) => {
-          
             window.location.href = `/bikes?brand=${brand}`;
           })
           .catch((error) =>

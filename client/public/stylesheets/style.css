@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-color: #ffffff;
+  background-color: green;
   color: #333333;
   padding: 1rem;
   display: flex;
@@ -58,10 +58,10 @@ nav a:hover {
   background-color: #ffffff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
-  transition :transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 .features-container .box:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 .features-container .box .box-img img {
@@ -86,10 +86,8 @@ nav a:hover {
   transition: transform 0.3s ease;
 }
 .brands-container .box:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
-
-
 
 .brands-container .box .box-img img {
   width: 100%;
@@ -113,9 +111,8 @@ nav a:hover {
   transition: transform 0.3s ease;
 }
 .topbikes-container .box:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
-
 
 .topbikes-container .box .box-img img {
   width: 100%;
@@ -136,11 +133,11 @@ nav a:hover {
   background-color: #ffffff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
-  transition:transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .latestbikes-container .box:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 .latestbikes-container .box .box-img img {

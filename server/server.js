@@ -90,10 +90,23 @@ app.get('/bike-details', async (req, res) => {
     if (!bike) {
       return res.status(404).json({ message: "Bike not found" });
     }
-    
-    res.render('bikeDetails', { bikes: [bike] }); 
+
+    res.render('bikeDetails', { bikes: [bike] });
   } catch (error) {
-    
+
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Route for fetching bikes by price range
+app.get('/api/bikefeatures', async (req, res) => {
+  const minPrice = req.query.minPrice ? parseInt(req.query.minPrice) : 0;
+  const maxPrice = req.query.maxPrice ? parseInt(req.query.maxPrice) : Infinity;
+  try {
+    // Query the database for bikes within the specified price range
+    const bikes = await BikeModel.find({ price: { $gte: minPrice, $lte: maxPrice } });
+    res.json(bikes);
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
