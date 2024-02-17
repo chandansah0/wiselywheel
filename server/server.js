@@ -96,6 +96,23 @@ app.get('/api/bikefeatures/price', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+app.get('/searchResults', async (req, res) => {
+  const searchTerm = req.query.searchTerm.toLowerCase();
+
+  try {
+    
+    const filteredBikes = await BikeModel.find({
+      $or: [
+        { brand: { $regex: searchTerm, $options: 'i' } }, 
+        { variant_name: { $regex: searchTerm, $options: 'i' } } 
+      ]
+    });
+
+    res.render('searchResults', { searchResults: filteredBikes });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 

@@ -82,14 +82,21 @@
   </head>
   <body>
     <header>
-      <img src="/image/l2.png" alt="WiselyWheel" width="150mm" height="100mm" />
+      <img
+        src="/image/logo.png"
+        alt="WiselyWheel"
+        width="150mm"
+        height="100mm"
+      />
       <nav>
-         <li><a href="index.html">Home</a></li>
+        <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="Browsebike.html">Browse Bikes</a></li>
           <li><a href="Comparebike.html">Compare Bikes</a></li>
           <li><a href="signup.html">Signup</a></li>
           <li><a href="aboutus.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
@@ -224,11 +231,26 @@
           bikeList.appendChild(listItem);
         });
       }
-
       function filterByPrice(minPrice, maxPrice) {
         fetch(`/api/bikefeatures?minPrice=${minPrice}&maxPrice=${maxPrice}`)
           .then((response) => response.json())
-          .then((bikes) => displayBikes(bikes))
+          .then((bikes) => {
+            const bikeList = document.getElementById("bikeList");
+            bikeList.innerHTML = "";
+            bikes.forEach((bike) => {
+              const listItem = document.createElement("div");
+              listItem.classList.add("bike-item");
+              listItem.innerHTML = `
+                <img src="${bike.image}" alt="${bike.variant_name}" />
+                <h4>${bike.variant_name}</h4>
+                <p>Price: Rs${bike.price}</p>
+              `;
+              listItem.addEventListener("click", () => {
+                window.location.href = `/bikeDetails?id=${bike._id}`;
+              });
+              bikeList.appendChild(listItem);
+            });
+          })
           .catch((error) => console.error("Error fetching bikes:", error));
       }
     </script>
